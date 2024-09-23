@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>山东政法学院 页面示例</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        position: relative;
+    }
+    #header {
+        position: fixed; /* 使用fixed定位 */
+        top: 10px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        z-index: 1000; /* 确保位于其他内容之上 */
+    }
+    #logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    #title {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 24px;
+    }
+    #contentArea {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-top: 80px; /* 留出顶部空间，防止内容被标题遮挡 */
+    }
+    #textArea {
+        display: block;
+        margin-bottom: 10px;
+    }
+    #contentCanvasWrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none; /* 默认隐藏 */
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+        z-index: 2;
+    }
+    #contentCanvas {
+        position: relative;
+        border: 1px solid #000;
+        padding: 20px;
+        background-color: white;
+        max-width: 80%; /* 避免画布过大 */
+        max-height: 80%; /* 避免画布过高 */
+    }
+    #closeButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div id="header">
+    <img id="logo" src="https://www.hzgrys.net/static/img/logo/1390.jpg" alt="Logo">
+    <div id="title">山东政法学院</div>
+</div>
+
+<div id="contentArea">
+    <h1>图书馆志愿者面试选拔题目</h1>
+    <textarea id="textArea" rows="20" cols="50">
+1. 你为什么想成为图书馆的志愿者？
+2. 你对图书馆工作有什么了解？
+3. 你能每周投入多少时间来担任志愿者？
+4. 你认为良好的志愿者应该具备哪些素质？
+5. 你在团队合作方面有哪些经验？
+6. 如果遇到读者对你的服务不满意，你会怎么处理？
+7. 你如何处理紧急情况，例如图书丢失或损坏？
+8. 你对图书馆的分类系统了解多少？
+9. 你对图书馆的活动组织有什么建议？
+10. 你如何处理读者的隐私问题？
+11. 你如何帮助读者找到他们需要的资料？
+12. 你是否有过类似志愿服务的经验？
+13. 你对图书馆的未来有什么期望？
+14. 你如何处理长时间的重复性工作？
+15. 你对图书馆的数字化建设有什么看法？
+16. 你如何处理读者之间的冲突？
+17. 你如何处理读者提出的不合理要求？
+18. 你对图书馆的阅读推广活动有什么想法？
+19. 你如何处理突发的大量读者需求？
+20. 你如何确保图书的正确归位？
+21. 你如何处理图书馆资源的有限性？
+22. 你对图书馆的环保措施有什么看法？
+23. 你如何处理读者的投诉？
+24. 你如何与图书馆工作人员沟通协作？
+25. 你对图书馆的未来发展有什么建议？
+26. 你对大学图书馆的工作有什么特别的兴趣？
+27. 你对图书馆的藏书分类系统了解多少？
+28. 你如何处理图书馆内的设施维护？
+29. 你对图书馆的读者服务有什么看法？
+30. 你如何处理图书馆内的紧急情况，如火灾？
+31. 你如何处理读者对图书馆服务的改进建议？
+32. 你如何理解“读者至上”的原则？
+33. 你如何处理图书馆内的噪音问题？
+34. 你对图书馆的藏书选择有什么看法？
+35. 你如何处理电子资源和纸质资源的关系？
+36. 你对图书馆的社交媒体运营有什么建议？
+37. 你如何处理图书馆的捐赠物品？
+38. 你对图书馆的志愿者培训计划有什么建议？
+39. 你对图书馆的在线预约服务有什么看法？
+40. 你如何处理读者的个性化需求？
+41. 你对图书馆的版权政策了解多少？
+42. 你如何处理图书馆的安全监控？
+43. 你对图书馆的阅读环境有什么建议？
+44. 你如何处理图书馆的书籍捐赠？
+45. 你对图书馆的读者调查有什么看法？
+46. 你对图书馆的开放时间有什么建议？
+47. 你如何处理图书馆的读者咨询？
+48. 你对图书馆的入馆教育有什么看法？
+49. 你对图书馆的在线资源访问有什么看法？
+50. 你如何处理图书馆的电子书推广？
+51. 你是否使用过图书馆的文献检索？如果使用过请说出你的看法
+52. 你认为图书馆的读者行为规范有什么需要改进的地方？
+53. 你对图书馆的网络信息安全有什么看法？
+54. 你对如何提升图书馆的志愿者服务质量有什么看法？
+55. 你对如何提升图书馆的读者体验改善有什么建议？
+56. 你对图书馆的读者服务流程优化有什么建议？
+</textarea>
+    <button onclick="showCanvas()">随机题目</button>
+</div>
+
+<div id="contentCanvasWrapper">
+    <canvas id="contentCanvas"></canvas>
+    <div id="closeButton" onclick="hideCanvas()">X</div>
+</div>
+
+<script>
+    function showCanvas() {
+        var textArea = document.getElementById('textArea');
+        var lines = textArea.value.trim().split(/\r?\n/);
+        var randomIndex = Math.floor(Math.random() * lines.length);
+        var canvas = document.getElementById('contentCanvas');
+        var context = canvas.getContext('2d');
+
+        // 设置画布大小
+        canvas.width = 400;
+        canvas.height = 200;
+
+        // 清除画布
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 设置字体样式
+        context.font = "20px Arial";
+        context.fillStyle = "black";
+
+        // 获取选中的题目
+        var question = lines[randomIndex];
+
+        // 计算每行的最大宽度
+        var maxWidth = canvas.width - 20; // 减去左右各10px的内边距
+        var lineHeight = 30; // 每行的高度
+        var y = 50; // 初始y坐标
+
+        // 将题目拆分为多行
+        var words = question.split(' ');
+        var line = '';
+
+        for (var n = 0; n < words.length; n++) {
+            var testLine = line + words[n] + ' ';
+            var metrics = context.measureText(testLine);
+            var testWidth = metrics.width;
+
+            // 如果当前行加上新单词超过最大宽度，则换行
+            if (testWidth > maxWidth) {
+                context.fillText(line, 10, y);
+                line = words[n] + ' ';
+                y += lineHeight;
+            } else {
+                line = testLine;
+            }
+        }
+        context.fillText(line, 10, y);
+
+        // 显示画布容器
+        document.getElementById('contentCanvasWrapper').style.display = 'flex';
+    }
+
+    function hideCanvas() {
+        document.getElementById('contentCanvasWrapper').style.display = 'none';
+    }
+
+    // 当点击文档任何地方时检查是否点击了画布外面
+    document.addEventListener('click', function(event) {
+        var contentCanvasWrapper = document.getElementById('contentCanvasWrapper');
+        if (event.target == contentCanvasWrapper) {
+            hideCanvas();
+        }
+    });
+</script>
+
+</body>
+</html>
