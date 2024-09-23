@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>山东政法学院</title>
+<title>山东政法学院 页面示例</title>
 <style>
     body, html {
         margin: 0;
@@ -47,6 +47,8 @@
         max-width: 600px; /* 最大宽度 */
         height: 200px; /* 默认高度 */
         resize: none; /* 禁止用户调整大小 */
+        font-size: 16px; /* 增加字体大小 */
+        padding: 10px; /* 增加内边距 */
     }
     #contentCanvasWrapper {
         position: fixed;
@@ -85,6 +87,15 @@
         #textArea {
             width: 90%; /* 在小屏幕上增加宽度 */
             height: 150px; /* 调整高度 */
+            font-size: 14px; /* 调整字体大小 */
+        }
+    }
+
+    /* 微信浏览器特定样式 */
+    @media (-webkit-min-device-pixel-ratio: 2) {
+        #textArea {
+            font-size: 16px; /* 增加字体大小 */
+            padding: 15px; /* 增加内边距 */
         }
     }
 </style>
